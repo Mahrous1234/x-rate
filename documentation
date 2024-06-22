@@ -1,0 +1,62 @@
+http://192.168.0.62/ratex/insert_student.php
+{
+    "email":"sandy123@gmail.com",
+    "password":"123456",
+    "name":"sandy123",
+    "phone":"01024388553",
+    "s_number":"123456"
+}
+http://192.168.0.62/ratex/login.php
+{
+    "email":"sandy123@gmail.com",
+    "password":"123456"
+}
+http://192.168.0.62/ratex/insert_grades.php
+{
+    "s_id":4,
+    "track_id":1,
+    "assignment":50
+}//final,midterm,assignment,quiz
+
+http://192.168.0.62/ratex/get_student.php?id=4
+
+
+http://192.168.0.62/ratex/get_grads.php
+//if you need to get all student grads with one track
+{
+    "student_id":4,
+    "track_id":1
+}
+//if you need to get all student grads
+{
+    "student_id":4
+}
+http://192.168.0.62/ratex/insert_notifacations.php
+{
+    "student_id":4,
+    "assest_id":1,
+    "message":"test",
+    "track_id":1
+}
+http://192.168.0.62/ratex/delete_grade.php
+{
+    "track_id":1,
+    "student_id":4,
+    "type":"quiz"
+}//type= final,midterm,assignment,quiz
+
+
+http://192.168.0.62/ratex/get_tracks.php
+
+http://192.168.0.62/ratex/get_student_number.php?id=123456
+
+//id=student_id
+http://192.168.0.62/ratex/get_student_behaviour.php?id=1
+
+http://192.168.0.62/ratex/insert_student_behavior.php
+{
+    "student_id":4,
+    "dealing_teach":5,
+    "dealing_other":50,
+    "attendance":40
+}
