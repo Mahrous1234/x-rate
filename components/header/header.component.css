@@ -1,0 +1,11 @@
+.img-logo-text{
+    font-size: 60px;
+    font-family: emoji;
+    color: #e1825b;
+    font-weight: 900;
+}
+.fa.fa-user{
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 8px;
+}
