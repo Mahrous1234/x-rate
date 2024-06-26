@@ -1,0 +1,102 @@
+<app-header></app-header>
+<div class="container2">
+    <!-- <img height="500" src="" alt="Snow" style="width:100%;"> -->
+    <h1 class="centered">Mid-Term Grade</h1>
+    <div class="overlay"></div>
+</div>
+<div class="row m-3" *ngIf="insertedSuccessfully">
+    <div class="alert alert-success">{{msg}}</div>
+</div>
+<div class="row m-3" *ngIf="error">
+    <div class="alert alert-danger">{{msg}}</div>
+</div>
+<div class="row">
+    <form [formGroup]="stuForm" class="col-12">
+        <div class="row m-3">
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Student Number</label>
+                    <ng-select2 class="form-control" [options]="options" placeholder="Choose student number" (valueChanged)="changeStudent($event)" formControlName="s_id">
+                        <option selected disabled value="0">Choose student number</option>
+                        <option *ngFor="let num of data" [value]="num.id">{{num.s_number}}</option>
+                    </ng-select2>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Student Name</label>
+                    <input type="text" class="form-control" value="{{studentName}}" placeholder="Student Name" readonly disabled>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Subject Name</label>
+                    <ng-select2 class="form-control" [options]="options" placeholder="Choose Subject Name" (valueChanged)="changeTrack($event)" formControlName="track_id">
+                        <option selected disabled value="0">Choose Subject Name</option>
+                        <option *ngFor="let track of tracks" [value]="track.id">{{track.name}}</option>
+                    </ng-select2>
+                    <!-- <input type="text" class="form-control" placeholder="Enter subject name"> -->
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Mid-Term Grade</label>
+                    <input type="text" class="form-control" placeholder="Enter grade" name="midterm" formControlName="midterm">
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <button class="btn btn-custom" [disabled]="stuForm.invalid" (click)="save()">Save</button>
+            </div>
+        </div>
+
+        <hr class="mb-4 mt-4">
+
+        <div class="row mx-3">
+            <div class="col-12">
+                <h6>Add students by excel sheet</h6>
+                <p>
+                    <a style="cursor: pointer;" (click)="downloadExcel()"><i class="fa fa-cloud-download"></i> Download Sample of sheet</a>
+                </p>
+            </div>
+            <div class="col-4 mt-4">
+                <label class="btn btn-custom" for="uploadExcel">Upload Excel File</label>
+                <input type="file" hidden id="uploadExcel" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" (change)="onFileChange($event)">
+            </div>
+        </div>
+    </form>
+
+
+    <div class="col-12">
+        <div class="card m-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table w-100 bordered" id="example">
+                        <thead>
+                            <tr>
+                                <th>Num</th>
+                                <th>Student name</th>
+                                <th>Student Number</th>
+                                <th>Subject Name</th>
+                                <th>Mid-Term Grade</th>
+                                <!-- <th>Action</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let stu of studentsGrades;let i = index">
+                                <td>{{i}}</td>
+                                <td>{{stu.student_name}}</td>
+                                <td>{{stu.student_number}}</td>
+                                <td>{{stu.track_name}}</td>
+                                <td>{{stu.midterm}}</td>
+                                <!-- <td>
+                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

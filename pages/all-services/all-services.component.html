@@ -1,0 +1,103 @@
+<app-header></app-header>
+
+    <section class="we-offer-area text-center bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading text-center">
+                        <h2>What we <span>Offer</span></h2>
+                        <h4><span>Rate - X</span> Student Evaluation System</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row our-offer-items less-carousel">
+
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <a href="students">
+                        <div class="item">
+                            <i class="fas fa-users"></i>
+                            <h4>All Students</h4>
+                            <p>
+                                Manage and view information for all enrolled students in one centralized platform.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <a href="add-students">
+                        <div class="item">
+                            <i class="fas fa-user-plus"></i>
+                            <h4>Add Students</h4>
+                            <p>
+                                Seamlessly add new students to the system with our user-friendly interface. 
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-sm-6 equal-height" *ngIf="userType != 'teacher' && userType != 'advisor'">
+                    <a href="mid-grade">
+                        <div class="item">
+                            <i class="fas fa-eraser"></i>
+                            <h4>Mid Grades</h4>
+                            <p>
+                                Evaluate and record mid-term grades with ease using our comprehensive grading system.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 equal-height" *ngIf="userType != 'teacher' && userType != 'advisor'">
+                    <a href="final-grade">
+                        <div class="item">
+                            <i class="fas fa-tasks"></i>
+                            <h4>Final Grades</h4>
+                            <p>
+                                Efficiently calculate and assign final grades for courses with our intuitive grading tool. 
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 equal-height" *ngIf="userType != 'doctor' && userType != 'advisor'">
+                    <a href="quizes">
+                        <div class="item">
+                            <i class="fas fa-file-pen"></i>
+                            <h4>Quizes</h4>
+                            <p>
+                                Create and manage quizzes effortlessly with our quiz management feature. 
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 equal-height" *ngIf="userType != 'doctor' && userType != 'advisor'">
+                    <a href="assignment">
+                        <div class="item">
+                            <i class="fas fa-folder-open"></i>
+                            <h4>Assignments</h4>
+                            <p>
+                                Assign and track student assignments seamlessly through our assignment tracking system. 
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-sm-6 equal-height" *ngIf="userType != 'doctor' && userType != 'advisor'">
+                    <a href="student-evaluations">
+                        <div class="item">
+                            <i class="fas fa-recycle"></i>
+                            <h4>Student evaluations</h4>
+                            <p>
+                                Conduct comprehensive student evaluations to assess learning outcomes and measure student proficiency.  
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+<app-footer></app-footer>

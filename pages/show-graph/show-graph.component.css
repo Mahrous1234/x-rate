@@ -1,0 +1,28 @@
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+.container2 {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 500px;
+    background-position: top;
+    background-size: 100%;
+    background-image: url('../../../assets/img/female-speaker-giving-presentation-hall-university-workshop-audience-conference-hall.jpg');
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #00000047;
+}
+.heading{
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration-line: underline;
+}

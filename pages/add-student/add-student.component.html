@@ -1,0 +1,97 @@
+<app-header></app-header>
+<div class="container2">
+    <!-- <img height="500" src="" alt="Snow" style="width:100%;"> -->
+    <h1 class="centered">Add new Students</h1>
+    <div class="overlay"></div>
+</div>
+<div class="row">
+    <div class="col-12 text-center">
+        <a href="students" class="btn btn-custom m-4">Show Students</a>
+    </div>
+    <div class="col-12">
+        <div class="card m-3">
+            <div class="card-body">
+                <div class="row" *ngIf="insertedSuccessfully">
+                    <div class="alert alert-success">{{msg}}</div>
+                </div>
+                <div class="row" *ngIf="error">
+                    <div class="alert alert-danger">{{msg}}</div>
+                </div>
+                <form class="row" [formGroup]="stuForm">
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Student Name</label>
+                            <input type="text" class="form-control" placeholder="Enter name" formControlName="name" name="name">
+                        </div>
+                        <div *ngIf="f['name'].invalid && f['name'].touched" style="color: red;font-size: 12px;">
+                            <div *ngIf="f['name'].hasError('required')">Name is required.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" placeholder="Enter email" formControlName="email" name="email">
+                        </div>
+                        <div *ngIf="f['email'].invalid && f['email'].touched" style="color: red;font-size: 12px;">
+                            <div *ngIf="f['email'].hasError('required')">Email is required.</div>
+                            <div *ngIf="f['email'].hasError('email')">Invalid email format.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" placeholder="Enter phone" pattern="^01[0-9]{9}$" formControlName="phone" name="phone">
+                        </div>
+                        <div *ngIf="f['phone'].invalid && f['phone'].touched" style="color: red;font-size: 12px;">
+                            <div *ngIf="f['phone'].hasError('required')">Phone is required.</div>
+                            <div *ngIf="f['phone'].hasError('pattern')">Invalid Phone format.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Student Number</label>
+                            <input type="text" class="form-control" placeholder="Enter student number" formControlName="s_number" name="s_number">
+                        </div>
+                        <div *ngIf="f['s_number'].invalid && f['s_number'].touched" style="color: red;font-size: 12px;">
+                            <div *ngIf="f['s_number'].hasError('required')">Student Number is required.</div>
+                            <div *ngIf="f['s_number'].hasError('pattern')">Invalid Student Number format.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" placeholder="Enter student password" formControlName="password" name="password">
+                        </div>
+                        <div *ngIf="f['password'].invalid && f['password'].touched" style="color: red;font-size: 12px;">
+                            <div *ngIf="f['password'].hasError('required')">Password is required.</div>
+                            <div *ngIf="f['password'].hasError('pattern')">Invalid Password format.</div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-custom" (click)="save()" [disabled]="stuForm.invalid">Save</button>
+                    </div>
+
+                    <hr class="mb-4 mt-4">
+                </form>
+
+                <form class="row">
+                    <div class="col-12">
+                        <h6>Add students by excel sheet</h6>
+                        <!-- <p><a><i class="fa fa-cloud-download"></i> <span> Download Sample of excel sheet</span></a></p> -->
+                        <p>
+                            <a style="cursor: pointer;" (click)="downloadExcel()"><i class="fa fa-cloud-download"></i> Download Sample of sheet</a>
+                            <!-- <a (click)="downloadExcel()" href="../../../assets/sample.xlsx"><i class="fa fa-cloud-download"></i> Download Sample of sheet</a> -->
+                        </p>
+                    </div>
+                    <div class="col-4 mt-4">
+                        <label class="btn btn-custom" for="uploadExcel">Upload Excel File</label>
+                        <!-- <input type="file" hidden id="uploadExcel" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"> -->
+                        <input type="file" hidden id="uploadExcel" (change)="onFileChange($event)" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                        <!-- <input type="file" hidden id="uploadExcel" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

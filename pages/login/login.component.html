@@ -1,0 +1,66 @@
+
+<div class="login-page bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+              <h3 class="mb-3">Login Now</h3>
+                <div class="bg-white shadow rounded">
+                    <div class="row">
+                        <div class="col-md-7 pe-0">
+                            <div class="form-left h-100 py-5 px-5">
+                                <form [formGroup]="loginForm" (ngSubmit)="login()" class="row g-4">
+                                    <div class="col-12 alert alert-danger" *ngIf="showError">
+                                        {{errorMsg}}
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Email<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
+                                            <input type="text" class="form-control" placeholder="Enter Username" name="email" formControlName="email">
+                                        </div>
+                                        <div class="danger" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+                                            Email is required
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label>Password<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                            <input type="password" class="form-control" placeholder="Enter Password" name="password" formControlName="password">
+                                        </div>
+                                        <div class="danger" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                                            Password is required
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="col-sm-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+                                            <label class="form-check-label" for="inlineFormCheck">Remember me</label>
+                                        </div>
+                                    </div> -->
+
+                                    <!-- <div class="col-sm-6">
+                                        <a href="#" class="float-end text-primary">Forgot Password?</a>
+                                    </div> -->
+
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary px-4 float-end mt-4">login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5 ps-0 d-none d-md-block p-0" style="position: relative;">
+                            <div class="form-right h-100 text-white text-center">
+                                <div class="color-overlay"></div>
+                                <h2 class="fs-1 pt-5">Rate - X</h2>
+                                <h2 class="fs-1">Welcome Back!!!</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

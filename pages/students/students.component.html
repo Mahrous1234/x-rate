@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="container2">
+    <!-- <img height="500" src="" alt="Snow" style="width:100%;"> -->
+    <h1 class="centered">All Students</h1>
+    <div class="overlay"></div>
+</div>
+<div class="row">
+    <div class="col-12 text-center">
+        <a href="add-students" class="btn btn-custom m-4">Add new Students</a>
+    </div>
+    <div class="col-12">
+        <div class="card m-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table w-100 bordered" id="example">
+                        <thead>
+                            <tr>
+                                <th>Num</th>
+                                <th>Student name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Student Number</th>
+                                <th>State</th>
+                                <th *ngIf="userType == 'advisor'">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let stu of data;let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{stu.name}}</td>
+                                <td>{{stu.email}}</td>
+                                <td>{{stu.phone}}</td>
+                                <td>{{stu.s_number}}</td>
+                                <td>
+                                    <span class="badge badge-success" style="background: green;" *ngIf="stu.state == 1">Active</span>
+                                    <span class="badge badge-danger" style="background: red;" *ngIf="stu.state == 2">Inactive</span>
+                                </td>
+                                <td *ngIf="userType == 'advisor'">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-gear"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <!-- <button class="btn btn-danger"></button> -->
+                                            <li><a class="dropdown-item" href="show-graph/{{stu.id}}"><i class="fa fa-chart-simple"></i> Show Graph and send notification</a></li>
+                                            <!-- <li><a class="dropdown-item" href="send-notification/{{stu.id}}"><i class="fa fa-bell"></i> Send Notification</a></li> -->
+                                            <!-- <li><a class="dropdown-item"><i class="fa fa-trash"></i> Delete</a></li> -->
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

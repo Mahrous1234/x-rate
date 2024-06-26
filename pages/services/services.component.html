@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="../../../assets/img/doctor_image.jpg" alt="Doctor Image" class="img-fluid mb-4 w-100">
+        </div>
+        <div class="col-md-6">
+            <div class="service-section">
+                <h2>Thanks for being here, Doctor</h2>
+                <p>Your dedication means a lot to us. As we get ready for another round of teaching, I just want to say a quick thanks.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='services'>
+    <ul class='container2'>
+      <li>
+        <h2>Our Services</h2>
+      </li>
+      <li style='--column: 1/2'><a href="students">All Students</a><a  href="students"><img class="container-inner" src='../../../assets/img/students.jpg'></a></li>
+      <li style='--column: 2/3'><a href="mid-grade">Student Mid Grades</a><a href="mid-grade"><img class="container-inner" src='../../../assets/img/mid-grade.jpg'></a></li>
+      <li style='--column: 3/4'><a href="final-grade">Student Final Grades</a><a href="final-grade"><img class="container-inner" src='../../../assets/img/final-grade.jpg'></a></li>
+      <li style='--column: 4/5' *ngIf="userType != 'doctor'"><a href="quizes">Student Quizes </a><a href="quizes"><img class="container-inner" src='../../../assets/img/quiz-grade.jpg'></a></li>
+    </ul>
+    <a class="btn btn-custom" href="all-services">Show More</a>
+  </div>
+
+<app-footer></app-footer>

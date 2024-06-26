@@ -1,0 +1,21 @@
+.overlay{
+    background-color: #00000038;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+}
+.carousel-inner {
+    height: 600px;
+}
+.carousel-caption{
+    bottom: 35rem;
+    z-index: 999;
+}
+.card{
+    height: 100%;
+}
+.btn-custom{
+    background-color: #e1825b;
+    color: #fff;
+}

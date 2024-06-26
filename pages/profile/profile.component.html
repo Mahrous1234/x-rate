@@ -1,0 +1,139 @@
+<app-header></app-header>
+<div class="container2">
+    <!-- <img height="500" src="" alt="Snow" style="width:100%;"> -->
+    <h1 class="centered">My Profile</h1>
+    <div class="overlay"></div>
+</div>
+<div class="row">
+    <form class="col-12">
+        <div class="row m-3">
+            <div class="col-12 mb-3">
+                <span class="heading">My Data</span>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Student Number</label>
+                    <input type="text" class="form-control" [value]="s_number" readonly disabled>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Student Name</label>
+                    <input type="text" class="form-control" [value]="name" readonly disabled>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" [value]="email" readonly disabled>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" [value]="phone" readonly disabled>
+                </div>
+            </div>
+            <div class="col-12">
+                <hr class="mb-4 mt-4">
+            </div>
+            <div class="col-12 mb-3">
+                <span class="heading">My Behavior</span>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Attendance and departure (%)</label>
+                    <input type="number" class="form-control" value="{{attendance}}" readonly disabled>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Dealing with others (%)</label>
+                    <input type="number" class="form-control" value="{{dealing_other}}" readonly disabled>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="form-group">
+                    <label class="form-label">Dealing with teaching assistants (%)</label>
+                    <input type="number" class="form-control" value="{{dealing_teach}}" readonly disabled>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <hr class="mb-4 mt-4">
+            </div>
+            <div class="col-12 mb-3">
+                <span class="heading">My Grades</span>
+            </div>
+            <div class="col-12">
+                <div class="row" *ngFor="let item of stuGradesData;let i = index;">
+                    <div class="col-12 mb-3">
+                        <span class="heading">Student Grades for {{trackNames[i]}} subject</span>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Mid-Term Grade</label>
+                            <input type="number" class="form-control" value="{{item.midterm}}" readonly disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Final Grade</label>
+                            <input type="number" class="form-control" value="{{item.final}}" readonly disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Assignment Grade</label>
+                            <input type="number" class="form-control" value="{{item.assignment}}" readonly disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Quiz Grade</label>
+                            <input type="number" class="form-control" value="{{item.quiz}}" readonly disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4 mt-4">
+    </form>
+
+    <div class="col-12" *ngIf="isDataLoaded">
+        <div class="card m-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart> 
+                    </div>
+                    <div class="col-md-6">
+                        <canvasjs-chart [options]="chartOptions2" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card m-3" *ngFor="let msg of messagesData">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Tracks</label>
+                            <input type="text" class="form-control" value="{{msg.track_name}}" readonly disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">Notification Message</label>
+                            <textarea rows="3" readonly disabled class="form-control">{{msg.message}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
